@@ -1,7 +1,12 @@
 import App from "./app"
+import Layout from "../components/Layout/Layout"
 
 const HomePage = () => {
-    return <App />
+    return (
+        <Layout>
+            <App />
+        </Layout>
+    )
 }
 
 export default HomePage

@@ -1,0 +1,38 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    &__body {
+        padding: 15px;
+        &__form {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            & input {
+                margin-top: 15px;
+            }
+            & textarea {
+                margin-top: 15px;
+            }
+            &__btn {
+                margin-top: 15px;
+                padding: 20px 5px;
+                border-radius: 15px;
+                border: none;
+                background-color: indigo;
+                color: #fff;
+                font-weight: bold;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(76, 0, 130, 0.795);
+                    box-shadow: 0 1px 10px 4px rgb(107, 61, 139);
+                }
+            }
+        }
+    }
+}
