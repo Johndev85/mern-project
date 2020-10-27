@@ -1,0 +1,20 @@
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.8rem;
+    &__list {
+        width: 100%;
+        display: inherit;
+        justify-content: space-evenly;
+
+        & li {
+            list-style: none;
+            padding: 10px;
+            margin: 10px;
+            & a {
+                text-decoration: none;
+            }
+        }
+    }
+}
