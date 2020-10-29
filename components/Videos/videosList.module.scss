@@ -11,7 +11,7 @@
     height: auto;
     display: grid;
     grid-template: auto / repeat(3, 1fr);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border: none;
     padding: 10px;
@@ -44,6 +44,12 @@
                     color: grey;
                 }
             }
+        }
+        &__body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     }
 }

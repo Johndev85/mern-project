@@ -2,6 +2,7 @@ import styles from "./videosList.module.scss"
 import { useEffect, useState } from "react"
 import * as videoService from "../../services/videoService"
 import Loader from "../../components/Loader"
+import ReactPlayer from "react-player/youtube"
 
 const VideoList = () => {
     const [videos, setVideos] = useState([])
@@ -12,10 +13,6 @@ const VideoList = () => {
         setVideos(res.data)
         setLoad(true)
     }
-
-    // const deleteVideo = async (videos) => {
-    //     const res = await videoService.deleteVideo(videos._id)
-    // }
 
     useEffect(() => {
         loadVideos()
@@ -34,8 +31,15 @@ const VideoList = () => {
                             <h2>{video.title}</h2>
                             <img src="/images/delete.svg" alt="delete-icon" />
                         </div>
-                        <h3>{video.description}</h3>
-                        <span> {video.created_at}</span>
+                        <div className={styles.container__cardVid__body}>
+                            <ReactPlayer
+                                url={video.url}
+                                width={300}
+                                height={200}
+                            />
+                            <h3>{video.description}</h3>
+                            <span> {video.created_at}</span>
+                        </div>
                     </div>
                 )
             })}
