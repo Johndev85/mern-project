@@ -1,8 +1,6 @@
 import VideoList from "../components/Videos/VideoList"
 
-const App = ({ videos }) => {
-    console.log(videos)
-
+const App = () => {
     return (
         <>
             <VideoList />
@@ -10,8 +8,8 @@ const App = ({ videos }) => {
     )
 }
 
-// export async function getStaticProps() {
-//     const res = await fetch("http://localhost:3001/videos")
+// export async function getServerSideProps() {
+//     const res = await videoService.getVideos()
 //     const videos = await res.json()
 
 //     return {
