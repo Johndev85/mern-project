@@ -1,3 +1,11 @@
+.loader {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     width: 100%;
     height: auto;
@@ -26,6 +34,16 @@
             background: #dddddd;
             box-shadow: inset 24px 24px 34px #a4a4a4,
                 inset -24px -24px 34px #ffffff;
+        }
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            img {
+                width: 30px;
+                &:hover {
+                    color: grey;
+                }
+            }
         }
     }
 }

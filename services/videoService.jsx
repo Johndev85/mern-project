@@ -17,3 +17,11 @@ export const createVideo = async (video) => {
         return error
     }
 }
+
+export const deleteVideo = async (video) => {
+    try {
+        return await axios.delete(`${API}/videos/${id}`, video)
+    } catch (error) {
+        return error
+    }
+}
