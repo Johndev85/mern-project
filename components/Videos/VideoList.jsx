@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react"
+import * as videoService from "../../services/videoService"
+import styles from "./videosList.module.scss"
 
-const VideloList = () => {
+const VideoList = () => {
     const [videos, setVideos] = useState([])
 
-    useEffect(() => {
-        fetch("http://localhost:3001/videos")
-            .then((response) => response.json())
-            .then((data) => setVideos(data))
-    }, [])
-    console.log(videos)
+    const loadVideos = async () => {
+        const res = await videoService.getVideos()
+        setVideos(res.data)
+    }
 
-    return (
-        <div>
-            {videos.map((video, i) => {
+    useEffect(() => {
+        loadVideos()
+    }, [])
+
+    return videos.length !== 0 ? (
+        <section className={styles.container}>
+            {videos.map((video) => {
                 return (
-                    <>
-                        <h2 key={i}>{video.title}</h2>
+                    <div className={styles.container__cardVid}>
+                        <h2>{video.title}</h2>
                         <h3>{video.description}</h3>
                         <span> {video.created_at}</span>
-                    </>
+                    </div>
                 )
             })}
+        </section>
+    ) : (
+        <div className={styles.noVideos}>
+            <span>No videos to view</span>
         </div>
     )
 }
 
-export default VideloList
+export default VideoList

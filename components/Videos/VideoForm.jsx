@@ -1,16 +1,38 @@
 import { useState } from "react"
 import styles from "../Videos/videoForm.module.scss"
+import * as videoService from "../../services/videoService"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { useRouter } from "next/router"
 
 const VideoForm = () => {
-    const [video, setVideo] = useState({ title: "", url: "", description: "" })
+    const initialState = { title: "", url: "", description: "" }
+
+    const router = useRouter()
+    const [video, setVideo] = useState(initialState)
 
     const handleInputChange = (e) => {
         setVideo({ ...video, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(video)
+
+        const res = await videoService.createVideo(video)
+        if (res.data) {
+            setVideo(res.data)
+            console.log(video)
+            toast.success("New Video Added", {
+                autoClose: 2000,
+            })
+            setTimeout(() => {
+                router.push("/")
+            }, 2500)
+        } else {
+            toast.error("The URL already exists", {
+                autoClose: 3000,
+            })
+        }
     }
 
     return (
@@ -50,6 +72,7 @@ const VideoForm = () => {
                         <button className={styles.card__body__form__btn}>
                             Create Video
                         </button>
+                        <ToastContainer />
                     </form>
                 </div>
             </div>

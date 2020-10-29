@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    & h2,
+    h3,
+    span {
+        padding: 10px;
+    }
+    &__cardVid {
+        width: auto;
+        height: auto;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 46px;
+        background: linear-gradient(145deg, #ececec, #c7c7c7);
+        box-shadow: 24px 24px 34px #a4a4a4, -24px -24px 34px #ffffff;
+        &:hover {
+            cursor: pointer;
+            border-radius: 46px;
+            background: #dddddd;
+            box-shadow: inset 24px 24px 34px #a4a4a4,
+                inset -24px -24px 34px #ffffff;
+        }
+    }
+}
+
+.noVideos {
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
