@@ -20,38 +20,6 @@
     span {
         padding: 10px;
     }
-    &__cardVid {
-        width: auto;
-        height: auto;
-        padding: 15px;
-        margin: 10px;
-        border-radius: 46px;
-        background: linear-gradient(145deg, #ececec, #c7c7c7);
-        box-shadow: 24px 24px 34px #a4a4a4, -24px -24px 34px #ffffff;
-        &:hover {
-            cursor: pointer;
-            border-radius: 46px;
-            background: #dddddd;
-            box-shadow: inset 24px 24px 34px #a4a4a4,
-                inset -24px -24px 34px #ffffff;
-        }
-        &__title {
-            display: flex;
-            justify-content: space-between;
-            img {
-                width: 30px;
-                &:hover {
-                    color: grey;
-                }
-            }
-        }
-        &__body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-    }
 }
 
 .noVideos {
