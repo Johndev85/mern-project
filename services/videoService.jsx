@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API = "http://localhost:3001"
+const API = "https://api-mern-project.herokuapp.com"
 
 export const getVideos = async () => {
     try {
@@ -13,6 +13,14 @@ export const getVideos = async () => {
 export const createVideo = async (video) => {
     try {
         return await axios.post(`${API}/videos`, video)
+    } catch (error) {
+        return error
+    }
+}
+
+export const deleteVideo = async (video) => {
+    try {
+        return await axios.delete(`${API}/videos/${id}`, video)
     } catch (error) {
         return error
     }
