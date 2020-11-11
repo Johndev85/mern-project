@@ -15,17 +15,32 @@
     &__title {
         display: flex;
         justify-content: space-between;
-        img {
-            width: 30px;
-            &:hover {
-                color: grey;
-            }
-        }
     }
     &__body {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    &__footerCard {
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        & ul {
+            display: flex;
+            & li {
+                list-style: none;
+                & a {
+                    color: blue;
+                    & img {
+                        width: 40px;
+                    }
+                    &:hover {
+                        color: grey;
+                    }
+                }
+            }
+        }
     }
 }

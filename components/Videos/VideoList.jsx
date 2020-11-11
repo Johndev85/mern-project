@@ -10,21 +10,26 @@ const VideoList = () => {
 
     const loadVideos = async () => {
         const res = await videoService.getVideos()
-        const formatedVideos = res.data
-            .map((video) => {
-                return {
-                    ...video,
-                    createdAt: video.created_at
-                        ? new Date(video.created_at)
-                        : new Date(),
-                    updatedAt: video.updatedAt
-                        ? new Date(video.updatedAt)
-                        : new Date(),
-                }
-            })
-            .sort((a, b) => b.createdAt.getTime() - a.updatedAt.getTime())
-        setVideos(formatedVideos)
-        setLoad(true)
+
+        if (res.data.length !== 0) {
+            const formatedVideos = res.data
+                .map((video) => {
+                    return {
+                        ...video,
+                        createdAt: video.created_at
+                            ? new Date(video.created_at)
+                            : new Date(),
+                        updatedAt: video.updatedAt
+                            ? new Date(video.updatedAt)
+                            : new Date(),
+                    }
+                })
+                .sort((a, b) => b.createdAt.getTime() - a.updatedAt.getTime())
+            setVideos(formatedVideos)
+            setLoad(true)
+        } else {
+            setLoad(true)
+        }
     }
 
     useEffect(() => {
